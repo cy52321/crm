@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <classPathEntry location="E:\java\softwares\javaresource\mysql-connector-java-5.1.46-bin.jar"></classPathEntry>
+    <context id="tables" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"></property>
+        </commentGenerator>
+        <jdbcConnection
+                driverClass="com.mysql.jdbc.Driver"
+                connectionURL="jdbc:mysql://localhost:3306/cheny?useSSL=false"
+                userId="root"
+                password="cy520123">
+        </jdbcConnection>
+        <javaModelGenerator targetPackage="com.cheny.springboot.domain"
+                            targetProject="src/main/java">
+            <property name="enableSubPackages" value="false"></property>
+            <property name="trimStrings" value="false"></property>
+        </javaModelGenerator>
+        <sqlMapGenerator targetPackage="com.cheny.springboot.dao"
+                         targetProject="src/main/java">
+            <property name="enableSubPackages" value="false"></property>
+        </sqlMapGenerator>
+        <javaClientGenerator
+                type="XMLMAPPER"
+                targetPackage="com.cheny.springboot.dao"
+                targetProject="src/main/java">
+            <property name="enableSubPackages" value="false"></property>
+        </javaClientGenerator>
+        <table tableName="t_stu" domainObjectName="User"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+    </context>
+</generatorConfiguration>
