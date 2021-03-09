@@ -29,7 +29,7 @@
                 targetProject="src/main/java">
             <property name="enableSubPackages" value="false"></property>
         </javaClientGenerator>
-        <table tableName="t_stu" domainObjectName="User"
+        <table tableName="t_user" domainObjectName="User"
                enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false"
