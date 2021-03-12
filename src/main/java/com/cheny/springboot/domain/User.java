@@ -1,31 +1,16 @@
 package com.cheny.springboot.domain;
 
+
 public class User {
     private String id;
 
-    private String loginact;
-
     private String name;
 
-    private String loginpwd;
+    private String loginAct;
+
+    private String loginPwd;
 
     private String email;
-
-    private String expiretime;
-
-    private String lockstate;
-
-    private String deptno;
-
-    private String allowips;
-
-    private String createtime;
-
-    private String createby;
-
-    private String edittime;
-
-    private String editby;
 
     public String getId() {
         return id;
@@ -33,14 +18,6 @@ public class User {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getLoginact() {
-        return loginact;
-    }
-
-    public void setLoginact(String loginact) {
-        this.loginact = loginact;
     }
 
     public String getName() {
@@ -51,12 +28,20 @@ public class User {
         this.name = name;
     }
 
+    public String getLoginact() {
+        return loginAct;
+    }
+
+    public void setLoginact(String loginact) {
+        this.loginAct = loginact;
+    }
+
     public String getLoginpwd() {
-        return loginpwd;
+        return loginPwd;
     }
 
     public void setLoginpwd(String loginpwd) {
-        this.loginpwd = loginpwd;
+        this.loginPwd = loginpwd;
     }
 
     public String getEmail() {
@@ -65,69 +50,5 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getExpiretime() {
-        return expiretime;
-    }
-
-    public void setExpiretime(String expiretime) {
-        this.expiretime = expiretime;
-    }
-
-    public String getLockstate() {
-        return lockstate;
-    }
-
-    public void setLockstate(String lockstate) {
-        this.lockstate = lockstate;
-    }
-
-    public String getDeptno() {
-        return deptno;
-    }
-
-    public void setDeptno(String deptno) {
-        this.deptno = deptno;
-    }
-
-    public String getAllowips() {
-        return allowips;
-    }
-
-    public void setAllowips(String allowips) {
-        this.allowips = allowips;
-    }
-
-    public String getCreatetime() {
-        return createtime;
-    }
-
-    public void setCreatetime(String createtime) {
-        this.createtime = createtime;
-    }
-
-    public String getCreateby() {
-        return createby;
-    }
-
-    public void setCreateby(String createby) {
-        this.createby = createby;
-    }
-
-    public String getEdittime() {
-        return edittime;
-    }
-
-    public void setEdittime(String edittime) {
-        this.edittime = edittime;
-    }
-
-    public String getEditby() {
-        return editby;
-    }
-
-    public void setEditby(String editby) {
-        this.editby = editby;
     }
 }
