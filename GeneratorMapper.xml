@@ -29,7 +29,7 @@
                 targetProject="src/main/java">
             <property name="enableSubPackages" value="false"></property>
         </javaClientGenerator>
-        <table tableName="t_activity_remark" domainObjectName="ActivityRemark"
+        <table tableName="t_dic_type" domainObjectName="DicType"
                enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false"

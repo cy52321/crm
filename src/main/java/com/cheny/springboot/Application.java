@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @SpringBootApplication
 @MapperScan(basePackages = "com.cheny.springboot.dao")
 @EnableTransactionManagement(proxyTargetClass = true)
-@ServletComponentScan(basePackages = {"com.cheny.springboot.Filter"})
+@ServletComponentScan(basePackages = {"com.cheny.springboot.filter","com.cheny.springboot.listener"})
 
 public class Application {
 

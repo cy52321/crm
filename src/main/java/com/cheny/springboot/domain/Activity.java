@@ -13,7 +13,7 @@ public class Activity {
 
     private String enddate;
 
-    private BigDecimal cost;
+    private String cost;
 
     private String description;
 
@@ -65,11 +65,11 @@ public class Activity {
         this.enddate = enddate;
     }
 
-    public BigDecimal getCost() {
+    public String getCost() {
         return cost;
     }
 
-    public void setCost(BigDecimal cost) {
+    public void setCost(String cost) {
         this.cost = cost;
     }
 

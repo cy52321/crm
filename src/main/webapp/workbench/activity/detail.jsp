@@ -68,7 +68,7 @@
             //为保存按钮绑定事件
             $("#saveRemarkBtn").on("click",function (){
                 $.ajax({
-                    url:"workbench/activity/saveRemark.do",
+                    url:"workbench/activity/saveRemark",
                     data:{
                         "noteContent":$.trim($("#remark").val()),
                         "activityId":"${a.id}",
@@ -88,7 +88,8 @@
                             //在textarea文本域上方新增一个div
                             var html = "";
                             html += '<div id="'+data.ar.id+'" class="remarkDiv" style="height: 60px;">';
-                            html += '<img title="zhangsan" src="image/user-thumbnail.png" style="width: 30px; height:30px;">';
+                            /*html += '<img title="zhangsan" src="image/user-thumbnail.png" style="width: 30px; height:30px;">';
+                            */
                             html += '<div style="position: relative; top: -40px; left: 40px;" >';
                             html += '<h5 id="e'+data.ar.id+'">'+data.ar.noteContent+'</h5>';
                             html += '<font color="gray">市场活动</font> <font color="gray">-</font> <b>${a.name}</b> <small style="color: gray;"> '+(data.ar.createTime)+' 由'+(data.ar.createBy)+'</small>';
@@ -109,10 +110,10 @@
             $("#updateRemarkBtn").on("click",function (){
                 var id = $("#remarkId").val();
                 $.ajax({
-                    url:"workbench/activity/updateRemark.do",
+                    url:"workbench/activity/updateRemark",
                     data:{
                         "id":id,
-                        "noteContent":$.trim($("#noteContent").val())
+                        "noteContent":$.trim($("#updatenoteContent").val())
                     },
                     type:"post",
                     dataType:"json",
@@ -137,7 +138,7 @@
         });
         function showRemarkList(){
             $.ajax({
-                url:"workbench/activity/getRemarkListByAid.do",
+                url:"workbench/activity/getRemarkListByAid",
                 data:{
                     "activityId":"${a.id}"
                 },
@@ -150,8 +151,8 @@
                      */
                     var html = "";
                     $.each(data,function (i,n){
-                        html += '<div id="'+n.id+'" class="remarkDiv" style="height: 60px;">';
-                        html += '<img title="zhangsan" src="image/user-thumbnail.png" style="width: 30px; height:30px;">';
+                        html += '<div id="'+n.id+'" class="remarkDiv" style="height: 60px;">';/*
+                        html += '<img title="zhangsan" src="image/user-thumbnail.png" style="width: 30px; height:30px;">';*/
                         html += '<div style="position: relative; top: -40px; left: 40px;" >';
                         html += '<h5 id="e'+n.id+'">'+n.noteContent+'</h5>';
                         html += '<font color="gray">市场活动</font> <font color="gray">-</font> <b>${a.name}</b> <small style="color: gray;"id="s'+n.id+'"> '+(n.editFlag==0?n.createTime:n.editTime)+' 由'+(n.editFlag==0?n.createBy:n.editBy)+'</small>';
@@ -162,20 +163,21 @@
                         html += '</div>';
                         html += '</div>';
                         html += '</div>';
-                    })
-                    $("#remarkDiv").before(html);
+                    })/*
+                    $("#remarkDiv").before(html);*/
+                    $("#qwe").html(html);
                 }
             })
         }
         function editRemark(id){
             $("#remarkId").val(id);
             var noteContent = $("#e"+id).html();
-            $("#noteContent").val(noteContent);
+            $("#updatenoteContent").val(noteContent);
             $("#editRemarkModal").modal("show");
         }
         function deleteRemark(id){
             $.ajax({
-                url:"workbench/activity/deleteRemark.do",
+                url:"workbench/activity/deleteRemark",
                 data: {
                     "id":id
                 },
@@ -186,7 +188,7 @@
                         data
                             "success:true/false"
                      */
-                    if (data.success){
+                    if (data){
                         $("#"+id).remove()
                         // showRemarkList();
                     }else {
@@ -216,9 +218,9 @@
             <div class="modal-body">
                 <form class="form-horizontal" role="form">
                     <div class="form-group">
-                        <label for="edit-describe" class="col-sm-2 control-label">内容</label>
+                        <label for="updatenoteContent" class="col-sm-2 control-label">内容</label>
                         <div class="col-sm-10" style="width: 81%;">
-                            <textarea class="form-control" rows="3" id="noteContent"></textarea>
+                            <textarea class="form-control" rows="3" id="updatenoteContent"></textarea>
                         </div>
                     </div>
                 </form>
@@ -232,7 +234,7 @@
 </div>
 
 <!-- 修改市场活动的模态窗口 -->
-<div class="modal fade" id="editActivityModal" role="dialog">
+<%--<div class="modal fade" id="editActivityModal" role="dialog">
     <div class="modal-dialog" role="document" style="width: 85%;">
         <div class="modal-content">
             <div class="modal-header">
@@ -294,7 +296,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>--%>
 
 <!-- 返回按钮 -->
 <div style="position: relative; top: 35px; left: 10px;">
@@ -304,7 +306,7 @@
 <!-- 大标题 -->
 <div style="position: relative; left: 40px; top: -30px;">
     <div class="page-header">
-        <h3>市场活动-${a.name} <small>${a.startDate} ~ ${a.endDate}</small></h3>
+        <h3>市场活动-${a.name} <small>${a.startdate} ~ ${a.enddate}</small></h3>
     </div>
     <div style="position: relative; height: 50px; width: 250px;  top: -72px; left: 700px;">
         <button type="button" class="btn btn-default" data-toggle="modal" data-target="#editActivityModal"><span class="glyphicon glyphicon-edit"></span> 编辑</button>
@@ -325,9 +327,9 @@
 
     <div style="position: relative; left: 40px; height: 30px; top: 10px;">
         <div style="width: 300px; color: gray;">开始日期</div>
-        <div style="width: 300px;position: relative; left: 200px; top: -20px;"><b>${a.startDate}</b></div>
+        <div style="width: 300px;position: relative; left: 200px; top: -20px;"><b>${a.startdate}</b></div>
         <div style="width: 300px;position: relative; left: 450px; top: -40px; color: gray;">结束日期</div>
-        <div style="width: 300px;position: relative; left: 650px; top: -60px;"><b>${a.endDate}</b></div>
+        <div style="width: 300px;position: relative; left: 650px; top: -60px;"><b>${a.enddate}</b></div>
         <div style="height: 1px; width: 400px; background: #D5D5D5; position: relative; top: -60px;"></div>
         <div style="height: 1px; width: 400px; background: #D5D5D5; position: relative; top: -60px; left: 450px;"></div>
     </div>
@@ -338,12 +340,12 @@
     </div>
     <div style="position: relative; left: 40px; height: 30px; top: 30px;">
         <div style="width: 300px; color: gray;">创建者</div>
-        <div style="width: 500px;position: relative; left: 200px; top: -20px;"><b>${a.createBy}&nbsp;&nbsp;</b><small style="font-size: 10px; color: gray;">${a.createTime}</small></div>
+        <div style="width: 500px;position: relative; left: 200px; top: -20px;"><b>${a.createby}&nbsp;&nbsp;</b><small style="font-size: 10px; color: gray;">${a.createtime}</small></div>
         <div style="height: 1px; width: 550px; background: #D5D5D5; position: relative; top: -20px;"></div>
     </div>
     <div style="position: relative; left: 40px; height: 30px; top: 40px;">
         <div style="width: 300px; color: gray;">修改者</div>
-        <div style="width: 500px;position: relative; left: 200px; top: -20px;"><b>${a.editBy}&nbsp;&nbsp;</b><small style="font-size: 10px; color: gray;">${a.editTime}</small></div>
+        <div style="width: 500px;position: relative; left: 200px; top: -20px;"><b>${a.editby}&nbsp;&nbsp;</b><small style="font-size: 10px; color: gray;">${a.edittime}</small></div>
         <div style="height: 1px; width: 550px; background: #D5D5D5; position: relative; top: -20px;"></div>
     </div>
     <div style="position: relative; left: 40px; height: 30px; top: 50px;">
@@ -363,6 +365,7 @@
         <h4>备注</h4>
     </div>
 
+    <div id="qwe"></div>
 
     <div id="remarkDiv" style="background-color: #E6E6E6; width: 870px; height: 90px;">
         <form role="form" style="position: relative;top: 10px; left: 10px;">

@@ -20,6 +20,31 @@
     from t_activity_remark
     where id = #{id,jdbcType=CHAR}
   </select>
+
+  <select id="getRemarkListByAid" resultType="com.cheny.springboot.domain.ActivityRemark">
+    select * from t_activity_remark where activityId=#{aid}
+  </select>
+
+  <delete id="deleteByIds">
+    delete from t_activity_remark
+    where activityId in
+    <foreach collection="array" item="aids" open="(" close=")" separator=",">
+      #{aids}
+    </foreach>
+  </delete>
+
+  <delete id="deleteRemark">
+    delete from t_activity_remark where id=#{id}
+  </delete>
+
+  <select id="getCountByIds" resultType="int">
+    select count(*) from t_activity_remark
+    where activityId in
+    <foreach collection="array" item="aid" open="(" close=")" separator=",">
+      #{aid}
+    </foreach>
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from t_activity_remark
     where id = #{id,jdbcType=CHAR}
@@ -32,6 +57,13 @@
       #{createby,jdbcType=VARCHAR}, #{edittime,jdbcType=CHAR}, #{editby,jdbcType=VARCHAR}, 
       #{editflag,jdbcType=CHAR}, #{activityid,jdbcType=CHAR})
   </insert>
+
+  <insert id="saveRemark">
+    insert into t_activity_remark(id, noteContent, createTime,
+      createBy, editFlag, activityId) values (#{id}, #{noteContent}, #{createTime},
+      #{createBy},#{editFlag}, #{activityId} )
+  </insert>
+
   <insert id="insertSelective" parameterType="com.cheny.springboot.domain.ActivityRemark">
     insert into t_activity_remark
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -87,6 +119,11 @@
       </if>
     </trim>
   </insert>
+
+  <update id="updateRemark">
+    update t_activity_remark set noteContent=#{noteContent},editBy=#{editBy},editTime=#{editTime},editFlag=#{editFlag} where id = #{id}
+  </update>
+
   <update id="updateByPrimaryKeySelective" parameterType="com.cheny.springboot.domain.ActivityRemark">
     update t_activity_remark
     <set>

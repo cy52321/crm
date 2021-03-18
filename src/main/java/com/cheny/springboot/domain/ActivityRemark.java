@@ -3,19 +3,19 @@ package com.cheny.springboot.domain;
 public class ActivityRemark {
     private String id;
 
-    private String notecontent;
+    private String noteContent;
 
-    private String createtime;
+    private String createTime;
 
-    private String createby;
+    private String createBy;
 
-    private String edittime;
+    private String editTime;
 
-    private String editby;
+    private String editBy;
 
-    private String editflag;
+    private String editFlag;
 
-    private String activityid;
+    private String activityId;
 
     public String getId() {
         return id;
@@ -25,59 +25,59 @@ public class ActivityRemark {
         this.id = id;
     }
 
-    public String getNotecontent() {
-        return notecontent;
+    public String getNoteContent() {
+        return noteContent;
     }
 
-    public void setNotecontent(String notecontent) {
-        this.notecontent = notecontent;
+    public void setNoteContent(String noteContent) {
+        this.noteContent = noteContent;
     }
 
-    public String getCreatetime() {
-        return createtime;
+    public String getCreateTime() {
+        return createTime;
     }
 
-    public void setCreatetime(String createtime) {
-        this.createtime = createtime;
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
     }
 
-    public String getCreateby() {
-        return createby;
+    public String getCreateBy() {
+        return createBy;
     }
 
-    public void setCreateby(String createby) {
-        this.createby = createby;
+    public void setCreateBy(String createBy) {
+        this.createBy = createBy;
     }
 
-    public String getEdittime() {
-        return edittime;
+    public String getEditTime() {
+        return editTime;
     }
 
-    public void setEdittime(String edittime) {
-        this.edittime = edittime;
+    public void setEditTime(String editTime) {
+        this.editTime = editTime;
     }
 
-    public String getEditby() {
-        return editby;
+    public String getEditBy() {
+        return editBy;
     }
 
-    public void setEditby(String editby) {
-        this.editby = editby;
+    public void setEditBy(String editBy) {
+        this.editBy = editBy;
     }
 
-    public String getEditflag() {
-        return editflag;
+    public String getEditFlag() {
+        return editFlag;
     }
 
-    public void setEditflag(String editflag) {
-        this.editflag = editflag;
+    public void setEditFlag(String editFlag) {
+        this.editFlag = editFlag;
     }
 
-    public String getActivityid() {
-        return activityid;
+    public String getActivityId() {
+        return activityId;
     }
 
-    public void setActivityid(String activityid) {
-        this.activityid = activityid;
+    public void setActivityId(String activityId) {
+        this.activityId = activityId;
     }
 }
