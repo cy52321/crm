@@ -28,20 +28,20 @@ public class User {
         this.name = name;
     }
 
-    public String getLoginact() {
+    public String getLoginAct() {
         return loginAct;
     }
 
-    public void setLoginact(String loginact) {
-        this.loginAct = loginact;
+    public void setLoginAct(String loginAct) {
+        this.loginAct = loginAct;
     }
 
-    public String getLoginpwd() {
+    public String getLoginPwd() {
         return loginPwd;
     }
 
-    public void setLoginpwd(String loginpwd) {
-        this.loginPwd = loginpwd;
+    public void setLoginPwd(String loginPwd) {
+        this.loginPwd = loginPwd;
     }
 
     public String getEmail() {

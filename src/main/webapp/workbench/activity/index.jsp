@@ -88,8 +88,6 @@
                     }
                 })
             })
-            //页面加载完毕后出发第一个方法
-            //默认展开页表的第一页，每页展现两条记录
             //为查询按钮绑定事件，出发pageList方法
             $("#searchBtn").click(function (){
                 /*点击查询按钮的时候，我们应该将搜索框中的信息保存起来，保存到隐藏域中*/
@@ -113,7 +111,6 @@
                     alert("请选择要删除的记录")
                 }else{
                     if(confirm("确定要删除所选的记录吗？")){
-                        //拼接参数
                         var param = "";
                         //将$xz中的每一个dom对象遍历出来，取其value值相当于取得了需要删除记录的id
                         for (var i=0;i<$xz.length;i++){
@@ -156,12 +153,8 @@
                         dataType:"json",
                         success:function (data){
                             /*
-                                data
-                                    用户列表
-                                    市场活动对象
                                     {"uList":[{用户1},{2},{3}],"a":市场活动}
                             */
-                            //处理所有者下拉框
                             var html = "<option></option>"
                             $.each(data.list,function (i,n){
                                 html += "<option value='"+n.id+"'>"+n.name+"</option>"
@@ -197,10 +190,6 @@
                     type: "post",
                     dataType: "json",
                     success:function (data){
-                        /*
-                            data
-                                {"success":true/false}
-                         */
                         if ("true"==data.success){
                             //修改成功后
                             //刷新市场活动信息列表（局部刷新）
@@ -238,11 +227,6 @@
                 dataType:"json",
                 success:function (data){
                     /*
-                        data
-                            我们需要的，市场活动信息列表
-                            [{市场活动1},{2},{3},{4}] List<Activity> aList
-                            一会儿分页插件需要的，查询出来的总记录数
-                            {"total":100} int total
                             {"total":100,"dataList":[{市场活动1},{2},{3},{4}]
                      */
                     var html = "";
@@ -498,14 +482,6 @@
                 </tr>
                 </thead>
                 <tbody id="activityBody">
-                <%--						<tr class="active">--%>
-                <%--							<td><input type="checkbox" /></td>--%>
-                <%--							<td><a style="text-decoration: none; cursor: pointer;" onclick="window.location.href='workbench/activity/detail.jsp';">发传单</a></td>--%>
-                <%--                            <td>zhangsan</td>--%>
-                <%--							<td>2020-10-10</td>--%>
-                <%--							<td>2020-10-20</td>--%>
-                <%--						</tr>--%>
-
                 </tbody>
             </table>
         </div>

@@ -42,14 +42,7 @@ public class WorkBenchActivity {
     public Map save(HttpServletRequest request,Activity activity){
 
         Map<String,String> map=new HashMap<>();
-        /*Activity activity=new Activity();*/
         activity.setId(UUIDUtil.getUUID());
-        /*activity.setOwner(request.getParameter("owner"));
-        activity.setName(request.getParameter("name"));
-        activity.setStartdate(request.getParameter("startDate"));
-        activity.setEnddate(request.getParameter("endDate"));
-        activity.setCost(request.getParameter("cost"));
-        activity.setDescription(request.getParameter("description"));*/
         activity.setCreatetime(DateTimeUtil.getSysTime());
         activity.setCreateby(((User)request.getSession().getAttribute("user")).getName());
         int a=workBenchService.insert(activity);

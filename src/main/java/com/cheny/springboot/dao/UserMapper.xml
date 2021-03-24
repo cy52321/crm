@@ -4,8 +4,8 @@
   <resultMap id="BaseResultMap" type="com.cheny.springboot.domain.User">
     <id column="id" jdbcType="CHAR" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="loginAct" jdbcType="VARCHAR" property="loginact" />
-    <result column="loginPwd" jdbcType="VARCHAR" property="loginpwd" />
+    <result column="loginAct" jdbcType="VARCHAR" property="loginAct" />
+    <result column="loginPwd" jdbcType="VARCHAR" property="loginPwd" />
     <result column="email" jdbcType="VARCHAR" property="email" />
   </resultMap>
   <sql id="Base_Column_List">
@@ -17,7 +17,6 @@
     from t_user2
     where id = #{id,jdbcType=CHAR}
   </select>
-
   <select id="selectAll" resultType="com.cheny.springboot.domain.User">
     select
     <include refid="Base_Column_List" />
@@ -39,7 +38,7 @@
     values (#{id,jdbcType=CHAR}, #{name,jdbcType=VARCHAR}, #{loginact,jdbcType=VARCHAR}, 
       #{loginpwd,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.cheny.springboot.domain.User">
+  <!--<insert id="insertSelective" parameterType="com.cheny.springboot.domain.User">
     insert into t_user2
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -75,8 +74,8 @@
         #{email,jdbcType=VARCHAR},
       </if>
     </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.cheny.springboot.domain.User">
+  </insert>-->
+  <!--<update id="updateByPrimaryKeySelective" parameterType="com.cheny.springboot.domain.User">
     update t_user2
     <set>
       <if test="name != null">
@@ -93,7 +92,7 @@
       </if>
     </set>
     where id = #{id,jdbcType=CHAR}
-  </update>
+  </update>-->
   <update id="updateByPrimaryKey" parameterType="com.cheny.springboot.domain.User">
     update t_user2
     set name = #{name,jdbcType=VARCHAR},
@@ -101,5 +100,9 @@
       loginPwd = #{loginpwd,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR}
     where id = #{id,jdbcType=CHAR}
+  </update>
+
+  <update id="updatePwd">
+    update t_user2 set loginPwd=#{pwd} where id=#{id}
   </update>
 </mapper>

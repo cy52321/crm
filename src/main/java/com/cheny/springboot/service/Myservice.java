@@ -9,4 +9,6 @@ import java.util.List;
 public interface Myservice {
     User login(String loginAct,String loginPwd) throws LoginException;
     List<User> select();
+
+    boolean updatePwd(String pwd, String id);
 }

@@ -29,7 +29,7 @@
                 targetProject="src/main/java">
             <property name="enableSubPackages" value="false"></property>
         </javaClientGenerator>
-        <table tableName="t_dic_type" domainObjectName="DicType"
+        <table tableName="t_tran_history" domainObjectName="TranHistory"
                enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false"

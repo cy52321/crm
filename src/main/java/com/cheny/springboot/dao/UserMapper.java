@@ -18,4 +18,6 @@ public interface UserMapper {
     int updateByPrimaryKey(User record);
     User selectByActPwd(String loginAct,String loginPwd);
     List<User> selectAll();
+
+    int updatePwd(String pwd, String id);
 }

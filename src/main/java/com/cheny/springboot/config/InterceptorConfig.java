@@ -9,7 +9,7 @@ public class InterceptorConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         String[] addPath={"/**"};
-        String[] excludePath={"/userlogin","/userlogin*","/images/**","/jquery/**",/*"*.js","*.html"*/};
+        String[] excludePath={"/userlogin","/userlogin*","/images/**","/jquery/**","/ECharts/**"/*"*.js","*.html"*/};
         registry.addInterceptor(new UserInterceptor()).addPathPatterns(addPath).excludePathPatterns(excludePath);
     }
 }

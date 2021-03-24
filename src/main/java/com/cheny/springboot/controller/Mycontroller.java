@@ -16,8 +16,6 @@ import java.util.Map;
 @Controller
 public class Mycontroller {
 
-
-
     @Autowired
     private MyserviceImpl myservice;
     @RequestMapping(value = "/userlogin")
@@ -38,6 +36,28 @@ public class Mycontroller {
         }finally {
             return map;
         }
+    }
+    @RequestMapping(value = "/changepwd")
+    @ResponseBody
+    public Map<String,String> changepwd(HttpServletRequest request,String oldpwd,String newpwd,String confirmpwd){
+        String res="";
+        Map<String ,String> map=new HashMap<>();
+        User user=(User)request.getSession().getAttribute("user");
+        if(!MD5Util.getMD5(oldpwd).equals(user.getLoginPwd())){
+            res="false1";
+        }else {
+            if(!newpwd.equals(confirmpwd)){
+                res="false2";
+            }else{
+                String pwd=MD5Util.getMD5(confirmpwd);
+                boolean r=myservice.updatePwd(pwd,user.getId());
+                if(r){
+                    res="true";
+                }
+            }
+        }
+        map.put("result",res);
+        return map;
     }
 }
 

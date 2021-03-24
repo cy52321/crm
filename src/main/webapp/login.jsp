@@ -55,8 +55,8 @@
                     "loginAct":loginAct,
                     "loginPwd":loginPwd
                 },
-                type:"post",
-                async: false,
+                type:"post",/*
+                async: false,*/
                 dataType:"json",
                 success:function (data){
                     if (data.success=="true"){
@@ -64,10 +64,10 @@
                     }else{
                         $("#msg").html(data.msg);
                     }
-                }/*,
+                },
                 error:function(){
                     window.location.href="workbench/index.jsp";
-                }*/
+                }
             })
         }
     </script>
@@ -85,7 +85,7 @@
         <div class="page-header">
             <h1>登录</h1>
         </div>
-        <form <%--action="/userlogin"--%> class="form-horizontal" role="form">
+        <form class="form-horizontal" role="form">
             <div class="form-group form-group-lg">
                 <div style="width: 350px;">
                     <input class="form-control" type="text" placeholder="用户名"id="loginAct">

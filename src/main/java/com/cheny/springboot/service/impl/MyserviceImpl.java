@@ -7,7 +7,6 @@ import com.cheny.springboot.service.Myservice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 
 @Service
@@ -30,6 +29,16 @@ public class MyserviceImpl implements Myservice {
     public List<User> select() {
         List<User> list=mapper.selectAll();
         return list;
+    }
+
+    @Override
+    public boolean updatePwd(String pwd, String id) {
+        boolean res=false;
+        int a=mapper.updatePwd(pwd,id);
+        if(a==1){
+            res=true;
+        }
+        return res;
     }
 
 
